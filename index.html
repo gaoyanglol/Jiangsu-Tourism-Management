@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>江苏省旅游度假区管理系统</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="title"></div>
+    <div class="main">
+      <div class="login right">
+        <h2>登录</h2>
+        <form>
+          <div class="id">
+            <input type="text" placeholder="用户名">
+          </div>
+          <div class="password">
+            <input type="password" placeholder="密码">
+          </div>
+          <div class="qrcode">
+            <input type="text" placeholder="验证码" maxlength="4">
+            <div class="code right"></div>
+          </div>
+          <div class="options">
+			<button class="reg left"></button>
+			<button class="log right"></button>
+          </div>
+        </form>
+        <p class="modify"><a href="#">修改密码</a></p>
+      </div>
+      <h1 id="bg_name" class="left"></h1>
+      <div id="bg_info" class="left"></div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>
+      <a href="#" class="left">微邦软件</a>
+      <a href="#" class="right">加入收藏</a>
+    </p>
+  </div>
+
+  <script>
+    window.onload = initial;
+    var index = 0;
+    var bg = new Array();
+    bg[0] = {
+      name:"溧阳天目湖",
+      src:"bg_1.png",
+      info:"<p>天目湖旅游度假区，位于溧阳市区南部8公里，区内座落着沙河、大溪两座国家级大型"+
+      "水库因属天目山余脉，故名“天目湖”。旅游度假区总体规划面积为10.67平方公里（不包括水面"+
+      "7.25平方公里）。</p><p>天目湖旅游度假区，是融观光、旅游、度假、会议等活动为一体和具"+
+      "有“行、游、住、食、购、娱”一条龙服务的省级旅游度假区。</p><p>1994年7月被江苏省人民"+
+      "政府批准为省级旅游度假区。</p>"
+    }
+    bg[1] = {
+      name:"南京汤山温泉",
+      src:"bg_2.png",
+      info:"<p>汤山温泉位于南京市江宁区汤山街道，是世界著名温泉疗养区，居中国四大温泉疗养区"+
+      "之首，是中国唯一获得欧洲、日本温泉水质国际双认证的温泉，有“千年圣汤，养生天堂”之美誉。"+
+      "</p><p>2015年10月汤山温泉旅游度假区成为首批国家级旅游度假区。</p>"
+    }
+    bg[2] = {
+      name:"苏州太湖",
+      src:"bg_3.png",
+      info:"<p>苏州太湖国家旅游度假区是国务院批准建立的。</p>度假区位於古城苏州西侧15公里处。"+
+      "东起古镇胥口镇，南临浩渺太湖，西靠渔洋山，北依吴中名山穹窿，连接湖中长沙岛、叶山岛、西山"+
+      "诸岛，启动开发面积为11.2平方公里。处於太湖风景区中心，太湖72峰48岛中大半分布在度假区四"+
+      "周。</p><p>山水风景绝佳、空气新鲜、气候宜人、风光旖旎，季季有果、月月有花；文物古迹密集"+
+      "，是吴文化的发祥地。这里是一个理想的旅游胜地。</p>"
+    }
+    function initial() {
+      var body = document.getElementsByTagName("body")[0];
+      var bg_name = document.getElementById("bg_name");
+      var bg_info = document.getElementById("bg_info");
+      if (index >= bg.length) {
+        index = 0;
+      }
+      body.style.backgroundImage = "url(./image/" + bg[index].src + ")";
+      bg_name.innerHTML = bg[index].name;
+      bg_info.innerHTML = bg[index].info;
+      index++;
+    }
+    setInterval("initial()",5000);
+  </script>
+</body>
+</html>
